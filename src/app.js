@@ -39,8 +39,6 @@ const checkText = () => {
 }
 
 const resetWord = () => {
-  console.table(selected_word.length, word.length)
-
   if (selected_word.length == word.length) {
     selected_word = words[Math.floor(Math.random() * words.length)].text
     word = ''
