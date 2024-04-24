@@ -1,0 +1,106 @@
+:root {
+  --color-bg-primary: #000;
+  --color-input-border: rgb(9, 46, 126);
+  --color-input-text: #fff;
+  --color-content-text: #fff;
+  --color-content-border: rgb(7, 112, 7);
+  --color-letter-text: #fff;
+  --color-letter-state-success: rgb(12, 190, 12);
+  --color-letter-state-error: rgb(190, 12, 12);
+  --color-letter-state-selected: rgb(32, 89, 211);
+  --color-border-primary: #f1f1f1;
+  --fontSize-primary: 1.4rem;
+  --padding-box: 2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.input {
+  --padding-box: 0 2rem;
+  border: 2px solid var(--color-input-border);
+  border-radius: 10px;
+  grid-row: 1;
+  color: var(--color-input-text);
+  min-height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: var(--padding-box);
+  font-size: var(--fontSize-primary);
+  line-height: 2rem;
+  box-shadow: 0 0 10px var(--color-input-border),
+    inset 0 0 10px var(--color-input-border);
+}
+
+.text {
+  text-align: justify;
+  width: 100%;
+  grid-row: 2;
+  font-size: var(--fontSize-primary);
+  line-height: 2rem;
+  padding: var(--padding-box);
+  border: 2px solid var(--color-content-border);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--color-content-border),
+    inset 0 0 10px var(--color-content-border);
+}
+
+.input,
+.text {
+  position: relative;
+}
+
+[data-label]::before {
+  content: attr(data-label);
+  position: absolute;
+  top: 0;
+  left: var(--padding-box);
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1.2rem;
+  background-color: var(--color-bg-primary);
+  text-transform: capitalize;
+}
+
+.letter {
+  color: var(--color-letter-text);
+}
+
+.letter--success {
+  color: var(--color-letter-state-success);
+  text-decoration: none;
+}
+
+.letter--error {
+  color: var(--color-letter-state-error);
+  text-decoration: underline;
+}
+
+.letter--selected {
+  color: var(--color-letter-state-selected);
+  text-decoration: none;
+}
